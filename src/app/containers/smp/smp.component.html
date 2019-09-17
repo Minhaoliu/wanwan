@@ -1,0 +1,13 @@
+<div style="width: 400px; height:400px;">
+  <vg-player>
+    <vg-buffering></vg-buffering>
+    <vg-controls>
+      <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+    <video [vgMedia]="media" #media id="singleVideo" preload="auto" autoplay="true" loop="true" crossorigin>
+      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+      <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
+      <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
+    </video>
+  </vg-player>
+</div>

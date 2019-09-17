@@ -1,0 +1,65 @@
+<div class="container outline">
+	<div class="top outline">
+		<ul nz-menu [nzMode]="'horizontal'" style="padding-left: 20px">
+			<li nz-menu-item>单路口</li>
+			<li nz-menu-item>干线</li>
+			<li nz-menu-item>区域</li>
+		</ul>
+	</div>
+	<div class="buttom outline">
+		<div class="search">
+			<nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+	      		<input type="text" nz-input placeholder="请输入" />
+	    	</nz-input-group>
+	    	<ng-template #suffixButton>
+	      		<button nz-button nzType="primary" nzSize="large" nzSearch>搜索</button>
+	    	</ng-template>
+    	</div>
+    	<div class="menu">
+	    	<ul nz-menu [nzMode]="'horizontal'">
+				<li nz-menu-item>全部记录</li>
+				<li nz-menu-item>待审核</li>
+				<li nz-menu-item>审核通过</li>
+				<li nz-menu-item>审核不通过</li>
+				<li nz-menu-item>正在下发</li>
+				<li nz-menu-item>下发成功</li>
+				<li nz-menu-item>下发失败</li>
+			</ul>
+		</div>
+		<div class="table">
+		<nz-table #filterTable [nzData]="listOfDisplayData">
+      		<thead (nzSortChange)="sort($event)" nzSingleSort>
+        		<tr>
+        			<th>路口</th>
+        			<th>方案</th>
+        			<th nzShowSort nzSortKey="CreateTime">创建时间</th>
+        			<th>创建人</th>
+        			<th nzShowSort nzSortKey="CheckTime">审核时间</th>
+        			<th>审核人</th>
+        			<th nzShowSort nzSortKey="DistributeTime">下发时间</th>
+        			<th>状态</th>
+        			<th>操作</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr *ngFor="let data of filterTable.data">
+          			<td>{{ data.Road }}</td>
+          			<td>{{ data.FangAn }}</td>
+          			<td>{{ data.CreateTime }}</td>
+          			<td>{{ data.CreatePerson }}</td>
+          			<td>{{ data.CheckTime }}</td>
+          			<td>{{ data.CreatePerson }}</td>
+          			<td>{{ data.DistributeTime }}</td>
+          			<td>{{ data.Status }}</td>
+          			<td>
+          				<a>查看</a>
+          				<a>  评估</a>
+          				<a>  通过</a>
+          				<a>  不通过</a>
+          			</td>
+        		</tr>
+      		</tbody>
+        </nz-table>
+    	</div>
+	</div>
+</div>

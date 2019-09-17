@@ -1,0 +1,5 @@
+<nz-carousel [nzEffect]="effect" (nzAfterChange) = 'change($event)' class='pmd'>
+      <div nz-carousel-content *ngFor="let index of ['1','2','3']">
+        <img src="{{src}}">
+      </div>
+    </nz-carousel>
